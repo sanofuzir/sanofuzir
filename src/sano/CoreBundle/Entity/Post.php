@@ -40,19 +40,6 @@ class Post
      * @Assert\File(maxSize="10000000")
      */
     protected $file;
-    
-    /**
-     * @var string
-     * @ORM\Column(length=255)
-     * @Assert\Email(
-     *     message = "Email ni veljaven!",
-     *     checkMX = true
-     * )
-     * @Assert\NotNull(
-     *     message = "To polje ne sme biti prazno!"
-     * )
-     */
-     protected $email;
 
     /**
      * @var string
@@ -122,29 +109,6 @@ class Post
     {
         return $this->name;
     }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-    
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Post
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
     
     public function getAbsolutePath() {
         return null === $this->path
@@ -161,13 +125,13 @@ class Post
     protected function getUploadRootDir() {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__.'/../../../../public/'.$this->getUploadDir();
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
     protected function getUploadDir() {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'posts';
+        return 'post';
     }
 
     /**

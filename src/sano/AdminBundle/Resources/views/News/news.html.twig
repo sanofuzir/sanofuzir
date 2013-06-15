@@ -1,0 +1,41 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Oglasi - {% endblock %}
+
+{% block content %}
+<h2>Novice</h2>
+<a class="btn btn-small pull-right" href="{{ path('_admin_add_news') }}"><i class="icon-plus"></i> Dodaj Novico</a>
+<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naslov</th>
+      <th>Text</th>
+      <th>Ustvarjena</th>
+      <th>Slika</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for OneNews in news %}
+    <tr>
+      <td>{{ OneNews.id }}</td>
+      <td>{{ OneNews.name}}</td>
+      <td>{{ OneNews.text|length > 50 ? OneNews.text|slice(0, 50) ~ '...' : OneNews.text }}</td>
+      <td>{{ OneNews.created|date('d.m.Y H:i:s')}}</td>
+      <td>
+          <a href="{{ asset('news/')}}{{OneNews.path }}" rel="lightbox">
+            <img src="{{ asset('news/')}}{{OneNews.path }}" alt="slika" width="50"/>
+          </a>
+      </td>
+      <td><a href="{{ path('_admin_edit_news', {'id': OneNews.id}) }}" title="Uredi Novico">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_news', {'id': OneNews.id } ) }}" class="confirmation" title="Odstrani novico" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Objave - {% endblock %}
+
+{% block content %}
+<h2>Objave</h2>
+<a class="btn btn-small pull-right" href="{{ path('_admin_add_post') }}"><i class="icon-plus"></i> Dodaj Objavo</a>
+<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naslov</th>
+      <th>Text</th>
+      <th>Ustvarjena</th>
+      <th>Slika</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in posts %}
+    <tr>
+      <td>{{ post.id }}</td>
+      <td>{{ post.name}}</td>
+      <td>{{ post.text|length > 50 ? post.text|slice(0, 50) ~ '...' : post.text }}</td>
+      <td>{{ post.created|date('d.m.Y H:i:s')}}</td>
+      <td>
+          <a href="{{ asset('post/')}}{{post.path }}" rel="lightbox">
+            <img src="{{ asset('post/')}}{{post.path }}" alt="slika" width="50"/>
+          </a>
+      </td>
+      <td><a href="{{ path('_admin_edit_post', {'id': post.id}) }}" title="Uredi Objavo">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_post', {'id': post.id } ) }}" class="confirmation" title="Odstrani objavo" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

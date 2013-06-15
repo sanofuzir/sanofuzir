@@ -1,0 +1,41 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Komentarji - {% endblock %}
+
+{% block content %}
+<h2>Komentarji</h2>
+{#
+<a class="btn btn-small pull-right" href="{{ path('_admin_add_comment') }}"><i class="icon-plus"></i> Dodaj Komentar</a>
+#}
+<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naslov</th>
+      <th>Text</th>
+      <th>Ustvarjena</th>
+      <th>Email</th>
+      <th>Objava</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for comment in comments %}
+    <tr>
+      <td>{{ comment.id }}</td>
+      <td>{{ comment.name}}</td>
+      <td>{{ comment.text|length > 50 ? OneNews.text|slice(0, 50) ~ '...' : OneNews.text }}</td>
+      <td>{{ comment.created|date('d.m.Y H:i:s')}}</td>
+      <td>{{ comment.email }}</td>
+      <td>{{ comment.post }}</td>
+      <td><a href="{{ path('_admin_edit_comment', {'id': comment.id}) }}" title="Uredi Komentar">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_comment', {'id': comment.id } ) }}" class="confirmation" title="Odstrani novico" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Objave - {% endblock %}
+
+{% block content %}
+<h2>Objave</h2>
+<form class="ad_form" action="{{ post.id ? path('_admin_edit_post', {'id': post.id}) : path('_admin_add_post') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <!--div class="form-actions"-->
+        <input type="submit" name="save" value="Shrani" class="btn btn-primary">
+    <!--/div-->
+</form>
+
+{% endblock %}

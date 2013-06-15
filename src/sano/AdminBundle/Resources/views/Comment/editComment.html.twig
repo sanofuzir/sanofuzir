@@ -1,0 +1,14 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Komentarji - {% endblock %}
+
+{% block content %}
+<h2>Komentarji</h2>
+<form class="ad_form" action="{{ comment.id ? path('_admin_edit_comment', {'id': comment.id}) : path('_admin_add_comment') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <!--div class="form-actions"-->
+        <input type="submit" name="save" value="Shrani" class="btn btn-primary">
+    <!--/div-->
+</form>
+
+{% endblock %}

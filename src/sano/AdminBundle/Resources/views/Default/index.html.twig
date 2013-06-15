@@ -1,1 +1,14 @@
-Hello {{ name }}!
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+<h2>Admin - nadzorna plošča</h2>
+<br />
+<div class="admin">
+    <a href="{{ path('_admin_posts') }}"><h4>Urejanje Bloga - Objav</h4></a><br />
+    <a href="{{ path('_admin_comments') }}"><h4>Urejanje Bloga - Komentarjev</h4></a><br />
+    <a href="{{ path('_admin_news') }}"><h4>Urejanje Novic</h4></a>
+</div>
+
+{% endblock %}

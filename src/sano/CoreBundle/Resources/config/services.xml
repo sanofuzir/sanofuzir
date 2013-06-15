@@ -4,17 +4,35 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
+
     <parameters>
-        <parameter key="core.example.class">sano\CoreBundle\Example</parameter>
+        <parameter key="sano.entity.post.class">sano\CoreBundle\Entity\Post</parameter>
+        <parameter key="sano.post_manager.class">sano\CoreBundle\Models\PostManager</parameter>
+        <parameter key="sano.entity.comment.class">sano\CoreBundle\Entity\Comment</parameter>
+        <parameter key="sano.comment_manager.class">sano\CoreBundle\Models\CommentManager</parameter>
+        <parameter key="sano.entity.image.class">sano\CoreBundle\Entity\Image</parameter>
+        <parameter key="sano.image_manager.class">sano\CoreBundle\Models\ImageManager</parameter>
+        <parameter key="sano.entity.news.class">sano\CoreBundle\Entity\News</parameter>
+        <parameter key="sano.news_manager.class">sano\CoreBundle\Models\NewsManager</parameter>                                                                                
     </parameters>
 
     <services>
-        <service id="core.example" class="%core.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="sano.post_manager" class="%sano.post_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%sano.entity.post.class%</argument>
+        </service>
+        <service id="sano.comment_manager" class="%sano.comment_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%sano.entity.comment.class%</argument>
+        </service>
+        <service id="sano.image_manager" class="%sano.image_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%sano.entity.image.class%</argument>
+        </service>
+        <service id="sano.news_manager" class="%sano.news_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%sano.entity.news.class%</argument>
         </service>
     </services>
-    -->
+
 </container>
