@@ -32,7 +32,7 @@ class News
     *
     * @ORM\Column(length=255)
     */
-    private $name;
+    protected $name;
     
     /**
      * @var string

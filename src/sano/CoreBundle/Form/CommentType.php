@@ -13,15 +13,15 @@ class CommentType extends AbstractType
         $builder
             ->add('name',null, array(
                 'attr'  => array('class' => 'span7'),
-                'label' => 'Naslov novice'
+                'label' => 'Ime'
             ))
             ->add('email',null, array(
                 'attr'  => array('class' => 'span7'),
                 'label' => 'Email'
             ))
-            ->add('text', 'textarea', array(
+            ->add('comment', 'textarea', array(
                 'attr'  => array('class' => 'span7', 'rows' => 15, 'cols'=>80),
-                'label' => 'Novica'
+                'label' => 'Komentar'
             ));
     }
 

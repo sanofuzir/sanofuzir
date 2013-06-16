@@ -15,7 +15,6 @@
       <th>Text</th>
       <th>Ustvarjena</th>
       <th>Email</th>
-      <th>Objava</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -24,10 +23,9 @@
     <tr>
       <td>{{ comment.id }}</td>
       <td>{{ comment.name}}</td>
-      <td>{{ comment.text|length > 50 ? OneNews.text|slice(0, 50) ~ '...' : OneNews.text }}</td>
+      <td>{{ comment.comment|length > 50 ? comment.comment|slice(0, 50) ~ '...' : comment.comment }}</td>
       <td>{{ comment.created|date('d.m.Y H:i:s')}}</td>
       <td>{{ comment.email }}</td>
-      <td>{{ comment.post }}</td>
       <td><a href="{{ path('_admin_edit_comment', {'id': comment.id}) }}" title="Uredi Komentar">
               <i class="icon-edit"></i>Uredi</a>&nbsp;
               <a href="{{ path('_admin_delete_comment', {'id': comment.id } ) }}" class="confirmation" title="Odstrani novico" data-confirmation="Ali si prepričan?">

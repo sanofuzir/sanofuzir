@@ -27,6 +27,14 @@ class CommentManager {
         return $this->repository->findAll();
     }
     /**
+     * Find all comments by post id 
+     */
+    public function findAllByPost($id)
+    {
+        return $this->repository->findAllByPost($id);
+    }
+    
+    /**
      * Get last 3 news order by creation date
      * 
      * @return Comment

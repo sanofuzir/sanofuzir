@@ -24,7 +24,7 @@ class Comment
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class Comment
      * @Assert\NotBlank(message="to polje ne sme biti prazno")
      * 
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
@@ -41,7 +41,7 @@ class Comment
      * @ORM\Column(name="comment", type="text", nullable=false)
      * @Assert\NotBlank(message="to polje ne sme biti prazno")
      */
-    private $comment;
+    protected $comment;
     
     /**
      * @var string
@@ -52,14 +52,14 @@ class Comment
      *     checkMX = true
      * )
      */
-    private $email;
+    protected $email;
     
     /**
      * @var string
      *
      * @ORM\Column(name="created", type="datetime")
      */
-    private $created;
+    protected $created;
 
     /**
      * @var \Post
@@ -69,7 +69,7 @@ class Comment
      *   @ORM\JoinColumn(name="post", referencedColumnName="id")
      * })
      */
-    private $post;
+    protected $post;
 
     public function __construct() {
         $this->created = new \DateTime('now');
@@ -157,10 +157,10 @@ class Comment
     /**
      * Set post
      *
-     * @param \Sano\BlogBundle\Entity\Post $post
+     * @param \Sano\CoreBundle\Entity\Post $post
      * @return Comment
      */
-    public function setPost(\Sano\BlogBundle\Entity\Post $post)
+    public function setPost(\Sano\CoreBundle\Entity\Post $post)
     {
         $this->post = $post;
     
@@ -177,10 +177,10 @@ class Comment
         return $this->post;
     }
     /**
-     * Set creation_date
+     * Set created
      *
-     * @param \DateTime $creationDate
-     * @return Post
+     * @param \DateTime $created
+     * @return Comment
      */
     public function setCreated($created)
     {
@@ -189,12 +189,12 @@ class Comment
         return $this;
     }
     /**
-     * Get creation_date
+     * Get created
      *
      * @return \DateTime 
      */
-    public function getCreationDate()
+    public function getCreated()
     {
-        return $this->creation_date;
+        return $this->created;
     }
 }

@@ -1,0 +1,15 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Komentarji - {% endblock %}
+
+{% block content %}
+
+<div class="vsebina">
+    <h1>Vnesi komentar</h1>
+    <form action="{{ path('_addComment', {'id': id}) }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <input type="submit" />
+    </form>
+</div>
+
+{% endblock %}

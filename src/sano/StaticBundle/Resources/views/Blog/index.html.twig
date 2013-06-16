@@ -1,0 +1,25 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>Blog:</h1>
+    <div>
+        {#{ render(controller('StaticBundle:Default:box', { 'limit': 12 })) }#}
+    </div>
+    
+    {% for post in posts %}
+      <p>{{ post.id }}</p>
+      <p>{{ post.name}}</p>
+      <p>{{ post.text|length > 50 ? post.text|slice(0, 50) ~ '...' : post.text }}</p>
+      <p>{{ post.created|date('d.m.Y H:i:s')}}</p>    
+      <a href="{{ asset('post/')}}{{post.path }}" rel="lightbox">
+        <img src="{{ asset('post/')}}{{post.path }}" alt="slika" width="50"/>
+      </a>      
+      <a href="{{ path('_post', ({'id': post.id})) }}" >Podrobno &raquo;</a>
+    {% endfor %}
+</div>
+  
+{% endblock %}

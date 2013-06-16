@@ -1,0 +1,32 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content_header '' %}
+
+{% block content %}
+
+<div class="vsebina">
+    <div id="news">
+      <p>{{ post.id }}</p>
+      <p>{{ post.name}}</p>
+      <p>{{ post.text|length > 50 ? post.text|slice(0, 50) ~ '...' : post.text }}</p>
+      <p>{{ post.created|date('d.m.Y H:i:s')}}</p>    
+      <a href="{{ asset('post/')}}{{post.path }}" rel="lightbox">
+        <img src="{{ asset('post/')}}{{post.path }}" alt="slika" width="50"/>
+      </a>      
+    </div>
+    <h3>Komentarji</h3>
+    {% for item in comments %}
+    <div id="comment">
+        <p><strong>{{ item.name }}</strong></p>
+        <p>{{ item.comment }}</p>
+        <p>{{ item.created|date('d.m.Y H:i:s') }}</p>
+    </div>
+    {% endfor %}
+       
+    <a href="{{ path('_addComment', ({'id': post.id})) }}" ><strong>Komentiraj</strong></a>
+    
+</div>
+
+{% endblock %}
