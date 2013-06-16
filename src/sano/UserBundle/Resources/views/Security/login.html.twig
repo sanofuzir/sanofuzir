@@ -1,0 +1,22 @@
+{% extends "UserBundle::layout.html.twig" %}
+
+{% block title %}Login{% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+{% if error %}
+    <div>{{ error|trans }}</div>
+{% endif %}
+    <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <h2 class="form-signin-heading">Damainpotepuh.si Login</h2>
+        <input type="text" class="input-block-level" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'Username'|trans }}">
+        <input type="password" class="input-block-level" id="password" name="_password" required="required" placeholder="{{ 'Password'|trans }}">
+        <label for="remember_me" class="checkbox">
+          <input type="checkbox" id="remember_me" name="_remember_me" value="on"> {{ 'Remember me'|trans }}
+        </label>
+        <input class="btn btn-large btn-primary"  type="submit" id="_submit" name="_submit" value="{{ 'Login'|trans }}" />
+    </form>
+
+{% endblock content %}

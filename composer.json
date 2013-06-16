@@ -19,6 +19,7 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "friendsofsymfony/user-bundle": "*",
+        "ircmaxell/password-compat": "dev-master",
         "incenteev/composer-parameter-handler": "~2.0"
     },
     "scripts": {
@@ -40,15 +41,14 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "stable",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
+        "branch-alias": {
+            "dev-master": "2.2-dev"
+        },
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "2.3-dev"
         }
-    }
+    }  
 }

@@ -8,7 +8,6 @@
 
 <div class="vsebina">
     <div id="news">
-      <p>{{ post.id }}</p>
       <p>{{ post.name}}</p>
       <p>{{ post.text|length > 50 ? post.text|slice(0, 50) ~ '...' : post.text }}</p>
       <p>{{ post.created|date('d.m.Y H:i:s')}}</p>    

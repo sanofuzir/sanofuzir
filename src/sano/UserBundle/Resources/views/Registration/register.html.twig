@@ -1,0 +1,15 @@
+{% extends "UserBundle::layout.html.twig" %}
+
+{% block content %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="form-signin">
+    <h2 class="form-signin-heading">User register</h2>
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" class="btn btn-large btn-primary"  value="{{ 'Registration'|trans }}" />
+    </div>
+</form>
+
+{% endblock content %}
