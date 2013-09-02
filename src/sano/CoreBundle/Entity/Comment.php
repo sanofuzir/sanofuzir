@@ -170,7 +170,7 @@ class Comment
     /**
      * Get post
      *
-     * @return \Sano\BlogBundle\Entity\Post 
+     * @return \Sano\CoreBundle\Entity\Post 
      */
     public function getPost()
     {

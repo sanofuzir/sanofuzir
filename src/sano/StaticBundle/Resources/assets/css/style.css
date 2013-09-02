@@ -2,7 +2,15 @@
       -------------------------------------------------- */
 html, body {
     height: 100%;
+    font-size: 14px;
+    font-family: Tahoma, Verdana, sans-serif;
+    letter-spacing: 1px;
 /* The html and body elements cannot have any padding or margin. */
+}
+.sano-content {
+    margin-top: 180px;
+    margin-left: 30px;
+    padding: 10px;
 }
 
 /* Wrapper for page content to push down footer */
@@ -45,4 +53,135 @@ html, body {
 
 code {
     font-size: 80%;
+}
+
+/*Footer*/
+
+.sano-footer {
+    text-align: center;
+}
+.sano-footer a:link, .sano-footer a:visited {
+    text-decoration: none;
+    color: #000000;
+}
+.sano-footer a:hover {
+    text-decoration: none;
+    color: #999;
+}
+
+/*Menu, header*/
+
+.sanonavbar {
+    height: 170px;
+    font-size: 1.2em;
+}
+.logo {
+    margin-left: 50px;
+}
+.logo img {
+    margin-top: 30px;
+    width: 100px;
+}
+
+/*Index page*/
+
+.sano-index {
+    padding: 10px;
+}
+.sano-index div {
+    width: 40%;
+    display: inline-table;
+}
+.sano-index h1 {
+    font-size: 16px;
+}
+
+.sano-ad {
+    background-color: #f4f4f4;
+    float: right; 
+    padding: 10px; 
+    text-align: center;
+    margin-top: -10px;
+}
+.sano-ad a:link, .sano-ad a:visited {
+    color: black;
+}
+
+/*Projects*/
+
+.projects h1{
+    font-size: 18px;
+}
+
+/*Contacts*/
+
+.contacts h1 {
+    font-size: 18px;
+}
+.contacts div {
+    width: 45%;
+    display: inline-table;
+    margin-left: 20px;
+}
+
+/*Blog*/
+.blog h1{
+    font-size: 18px;
+}
+.blog-posts {
+    background-color: #f4f2f2;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+.blog-posts a:link, .blog-posts a:visited {
+    color: black;
+}
+.post a:link, .post a:visited {
+    color: black;
+}
+.post {
+    background-color: #f4f2f2;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.post p, .post a {
+    margin-left: 100px;
+}
+.post h1 {
+    font-size: 18px;
+    margin-left: 100px;
+}
+
+.comment {
+    background-color: #CCCCCC;
+    width: 80%;
+    margin: 0 auto;
+}
+.blog-image {
+    margin-left: 500px;
+    margin-top: -100px;
+}
+.blog-image img {
+    width: 200px;
+    border: 1px solid black;
+}
+
+/*News*/
+
+.sano-news div {
+    width: 48%;
+    display: inline-block;
+}
+.sano-news img {
+    float: left;
+    margin: 10px;
+    width: 150px;
+    position: absolute;
+}
+.sano-news p {
+    margin-left: 220px;
+    margin-top: 10px;
 }

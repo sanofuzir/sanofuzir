@@ -5,12 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %}Sano Fužir</title>
-    <meta name="description" content="">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="My personal web page">
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Sano Fužir">
 
-    
     {% stylesheets output='css/style.css' filter=''
            '@StaticBundle/Resources/assets/css/bootstrap.css'
            '@StaticBundle/Resources/assets/css/bootstrap-responsive.css'
@@ -29,33 +28,18 @@
 
       <!-- Fixed navbar -->
       <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
+        <div class="sanonavbar navbar-inner">
           <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="{{ path('_home') }}">Project name</a>
-            <div class="nav-collapse collapse">
+            <a class="logo" href="{{ path('_home') }}">
+                <img src="{{ asset('bundles/static/images/logo.png') }}" alt="Logo" />
+            </a>
+            <div class="nav-collapse collapse" style="margin-left: 700px;" >
               <ul class="nav">
-                <li class="active"><a href="{{ path('_home') }}">Domov</a></li>
+                <li><a href="{{ path('_home') }}">Domov</a></li>
                 <li><a href="{{ path('_about') }}">O meni</a></li>
                 <li><a href="{{ path('_projects') }}">Projekti</a></li>
                 <li><a href="{{ path('_blog') }}">Blog</a></li>
                 <li><a href="{{ path('_contact') }}">Kontakt</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="nav-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
@@ -71,7 +55,7 @@
           {% endfor %}
       {% endfor %}    
                   
-        <div class="symfony-content">
+        <div class="sano-content symfony-content">
             {% block content %}
             {% endblock %}
         </div>
@@ -82,21 +66,41 @@
 
     <div id="footer">
       <div class="container">
-        <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+        <p class="sano-footer muted credit"><a href="http://www.sanofuzir.com">Sano Fužir - Informacijske storitve</a></p>
       </div>
     </div>
       
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    {#
+    <script src="{{ asset('js/script.js') }}" type="text/javascript" />
+    <script src="{{ asset('@StaticBundle/Resources/assets/js/vendor/jquery-1.7.2.min.js') }}" type="text/javascript" />
+    <script src="{{ asset('@StaticBundle/Resources/assets/js/vendor/jquery-1.9.1.js') }}" type="text/javascript" />
+    <script src="{{ asset('@StaticBundle/Resources/assets/js/vendor/lightbox.js') }}" type="text/javascript" />
+    <script src="{{ asset('@StaticBundle/Resources/assets/js/vendor/bootstrap.js') }}" type="text/javascript" />
+    #}
     {% javascripts  output='js/scripts.js'
-        '@StaticBundle/Resources/assets/js/vendor/jquery-1.9.1.js'
         '@StaticBundle/Resources/assets/js/vendor/jquery-1.7.2.min.js'
         '@StaticBundle/Resources/assets/js/vendor/lightbox.js'
         '@StaticBundle/Resources/assets/js/vendor/bootstrap.js'
         '@StaticBundle/Resources/assets/js/*' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+        
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43147548-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
 
   </body>
 </html>

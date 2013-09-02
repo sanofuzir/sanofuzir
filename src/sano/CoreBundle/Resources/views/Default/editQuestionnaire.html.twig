@@ -1,0 +1,14 @@
+{% extends 'CoreBundle::layout.html.twig' %}
+
+{% block title %}Glasovanje{% endblock %}
+
+{% block content %}
+<h2>Kateri je vaš najljubši spletni brskalnik</h2>
+<form class="questionnaire_form" action="{{ questionnaire.id ? path('_edit_questionnaire', {'id': questionnaire.id}) : path('_add_questionnaire') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <!--div class="form-actions"-->
+        <input type="submit" name="save" value="Shrani" class="btn btn-primary">
+    <!--/div-->
+</form>
+
+{% endblock %}

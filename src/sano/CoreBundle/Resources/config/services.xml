@@ -13,7 +13,9 @@
         <parameter key="sano.entity.image.class">sano\CoreBundle\Entity\Image</parameter>
         <parameter key="sano.image_manager.class">sano\CoreBundle\Models\ImageManager</parameter>
         <parameter key="sano.entity.news.class">sano\CoreBundle\Entity\News</parameter>
-        <parameter key="sano.news_manager.class">sano\CoreBundle\Models\NewsManager</parameter>                                                                                
+        <parameter key="sano.news_manager.class">sano\CoreBundle\Models\NewsManager</parameter>  
+        <parameter key="sano.entity.questionnaire.class">sano\CoreBundle\Entity\Questionnaire</parameter>
+        <parameter key="sano.questionnaire_manager.class">sano\CoreBundle\Models\QuestionnaireManager</parameter>                                                                              
     </parameters>
 
     <services>
@@ -32,6 +34,10 @@
         <service id="sano.news_manager" class="%sano.news_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument>%sano.entity.news.class%</argument>
+        </service>
+        <service id="sano.questionnaire_manager" class="%sano.questionnaire_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%sano.entity.questionnaire.class%</argument>
         </service>
     </services>
 

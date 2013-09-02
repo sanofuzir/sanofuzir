@@ -6,26 +6,26 @@
 
 {% block content %}
 
-<div class="vsebina">
-    <div id="news">
-      <p>{{ post.name}}</p>
+<div>
+    <div class="post">
+      <h1>{{ post.name}}</h1>
       <p>{{ post.text|length > 50 ? post.text|slice(0, 50) ~ '...' : post.text }}</p>
-      <p>{{ post.created|date('d.m.Y H:i:s')}}</p>    
-      <a href="{{ asset('post/')}}{{post.path }}" rel="lightbox">
-        <img src="{{ asset('post/')}}{{post.path }}" alt="slika" width="50"/>
-      </a>      
-    </div>
-    <h3>Komentarji</h3>
+      <p><b>Datum objave: </b>{{ post.created|date('d.m.Y H:i:s')}}</p>    
+      <p  class="blog-image" style="margin-left: 500px;">
+        <a href="{{ asset('post/')}}{{post.path }}" rel="lightbox">
+            <img src="{{ asset('post/')}}{{post.path }}" alt="slika"/>
+        </a>
+      </p>
+      <h1>Komentarji:</h1>
     {% for item in comments %}
-    <div id="comment">
-        <p><strong>{{ item.name }}</strong></p>
-        <p>{{ item.comment }}</p>
-        <p>{{ item.created|date('d.m.Y H:i:s') }}</p>
-    </div>
-    {% endfor %}
-       
+        <div class="comment">
+            <p><strong>{{ item.name }}</strong></p>
+            <p>{{ item.comment }}</p>
+            <p><b>Datum objave: </b> {{ item.created|date('d.m.Y H:i:s') }}</p>
+        </div>
+    {% endfor %} 
     <a href="{{ path('_addComment', ({'id': post.id})) }}" ><strong>Komentiraj</strong></a>
-    
+    </div>
 </div>
 
 {% endblock %}

@@ -1,0 +1,27 @@
+{% block content %}
+<h2>Rezultati ankete </h2>
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Brskalnik</th>
+      <th>Število glasov</th>
+      <th>Odstotek</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+     
+    {% for item in num_of_votes %}
+      {% for item2 in results %}
+        <tr>
+            <td>{{ item2.browser }}</td>
+            <td>{{ item2.1 }}</td>
+            <td>{{ ((item2.1 * 100)/item.1)|number_format(1, '.', ' ') }} %</td>
+        </tr>
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

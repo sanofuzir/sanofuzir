@@ -1,54 +1,71 @@
 {% extends 'StaticBundle::layout.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Sano Fužir{% endblock %}
 
 {% block content %}
 
 <div class="index_content">
-          <div style="margin-top: 30px;">
+          <div class="sano-index">
               <div>
-                  <p>
-                <b>Zdravo!</b><br /><br />
-                Moje ime je Sano Fužir. Sem spletni programer. Aplikacije razvijam z znanjem programskih jezikov
-                in z uporabo najnoveših ogrodij.
-                Uživam v razvijanju novih aplikacij, spoznavanju novih orodij in tehnologij. <br /><br />
-                <!--
-                "Pri aplikacijah dam prednost preprostostosti, učinkovitosti in zanesljivosti, 
-                saj le tako dosežemo najboljše rezultate."
-                -->
+                <p>
+                <h1>Zdravo!</h1>
+                Moje ime je Sano Fužir. Sem spletni programer.
+                Uživam v razvijanju novih aplikacij, spoznavanju novih orodij in tehnologij.
               </p>
               </div>
-              <div>
+              <div class="sano-ad">
                   <p>
-                      IŠČETE SPLETNEGA PROGRAMERJA?<br />
+                  <h1>IŠČETE SPLETNEGA PROGRAMERJA?</h1>
                       Vedno sprejmem nove in zanimive spletne projekte.<br />
-                      Če želite sodelovati z mano me kontaktirajte
-                    <br />
-                    <a href="">Kontakt →</a>
+                      Če želite sodelovati z mano me kontaktirajte<br />
+                    <a href="{{ path('_contact') }}">Kontakt →</a>
                   </p>
               </div>
               <hr />
           </div>
           
-      <div>
+      <div class="sano-index">
           <div>
               <p>
-                <b>O MOJEM DELU</b><br />
-                text<br />
-                text<br />
-                text<br />
-                text<br />
-                text<br />
-                text<br />
-                text<br />
+                <h1>O MENI IN MOJEM DELU</h1>
+                Po končani elektro-računalniški srednji šoli sem obiskoval Univerzo v Mariboru, 
+                kjer sem obiskoval študijski program Računalništvo in tehnologije komuniciranja, 
+                vendar sem se kasneje preusmeril na študij Informatike na Višji strokovni šoli v Velenju, 
+                kjer sem tudi diplomiral. Sedaj sodelujem pri različnih projektih in izdelujem spletne aplikacije.
               </p>
           </div>
-              <div>
-                  <p>
+              <div style="float: right">
+                  <p style="padding-top: 50px; font-size: 16px; letter-spacing: 4px; line-height: 30px; ">
                       "Nikoli ti niso dane sanje, <br />ne da bi ti bila dana tudi moč, <br />da jih uresničiš"
                   </p>
               </div>
         </div>
     </div>
+<hr />
+
+    <div class="sano-index" >
+        {% for OneNews in news %}
+            <div class="sano-news" style="margin-left: 40px; min-height: 300px;">
+                <h1>{{ OneNews.name }}</h1>
+                    <a href="{{ asset('news/')}}{{OneNews.path }}" rel="lightbox">
+                        <img src="{{ asset('news/')}}{{OneNews.path }}" alt="slika" width="50"/>
+                    </a>
+                <p>{{ OneNews.text }}</p>
+                <p><b>Datum objave: </b>{{ OneNews.created|date('d.m.Y') }}</p>   
+            </div>
+        {% endfor %}
+    </div>
+
+    <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-2284561086531313";
+        /* Homepage */
+        google_ad_slot = "5884906380";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
 
 {% endblock %}
