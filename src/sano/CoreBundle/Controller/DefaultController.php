@@ -100,18 +100,20 @@ class DefaultController extends Controller
                 
                 $num_of_votes = $this->getQuestionnaireManager()->getNumOfVotes();
                 $results = $this->getQuestionnaireManager()->getQuestionnaireResults();
-                
+                $user_data = $this->getQuestionnaireManager()->findQuestionnaire($entity->getId());
+                        
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Rezultati ankete')
                     ->setFrom('sano.fuzir@gmail.com')
-                    ->setTo('sano.fuzir@gmail.com')
+                    ->setTo($user_data->getEmail())
                     ->setBody(
                 $this->renderView(
                 'CoreBundle:Default:email.html.twig',
                 array('results' => $results,
                       'num_of_votes' => $num_of_votes,
+                      'user'    => $user_data,
                      )
-            )
+            ), 'text/html'
         )
         ;
                 $this->get('mailer')->send($message);

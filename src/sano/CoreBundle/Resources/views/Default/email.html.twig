@@ -1,27 +1,35 @@
-{% block content %}
+<html>
+<body>
+    {# Podatki o uporabniku #}
+        <h2>Pozdravljen {{user.name}}!</h2>
+        <p>Zahvaljujemo se vam za izpolnjeno anketo!</p>
+        <h3>Tvoji podatki:</h3>
+        <p><b>Ime:</b> {{user.name}}</p>
+        <p><b>Priimek:</b> {{user.surname}}</p>
+        <p><b>Datum Rojstva:</b> {{user.DateOfBirth|date("d.m.Y")}}</p>
+        <p><b>Email:</b> {{user.email}}</p>
+        <p><b>Brskalnik:</b> {{user.browser}}</p>
+                
 <h2>Rezultati ankete </h2>
-<table class="table table-condensed table-hover">
+<table style="border: 3px outset black; padding: 10px 40px 10px 0px;">
   <thead>
     <tr>
       <th>Brskalnik</th>
-      <th>Število glasov</th>
-      <th>Odstotek</th>
-      <th>&nbsp;</th>
+      <th style="padding-left: 20px;">Število glasov</th>
+      <th style="padding-left: 25px;">Odstotek</th>
     </tr>
   </thead>
-
   <tbody>
-     
     {% for item in num_of_votes %}
       {% for item2 in results %}
         <tr>
-            <td>{{ item2.browser }}</td>
-            <td>{{ item2.1 }}</td>
-            <td>{{ ((item2.1 * 100)/item.1)|number_format(1, '.', ' ') }} %</td>
+            <td style="padding-left: 43px; font-size: 110%;">{{ item2.browser }}</td>
+            <td style="padding-left: 43px;">{{ item2.1 }}</td>
+            <td style="padding-left: 43px;">{{ ((item2.1 * 100)/item.1)|number_format(1, '.', ' ') }} %</td>
         </tr>
     {% endfor %}
     {% endfor %}
   </tbody>
 </table>
-
-{% endblock %}
+</body>
+</html>
